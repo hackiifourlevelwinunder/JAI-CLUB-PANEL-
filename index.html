@@ -17,16 +17,16 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-height:100vh;
+background:#020617;
 overflow:hidden;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:#020617;
 position:relative;
 }
 
-/* BACKGROUND EFFECT */
+/* BACKGROUND */
 
 .bg{
 position:absolute;
@@ -120,24 +120,22 @@ transform:scale(1);
 }
 }
 
-/* HEADER */
-
 .logo{
-font-size:40px;
+font-size:38px;
 font-weight:900;
 color:#00fff7;
 text-shadow:
 0 0 10px #00fff7,
 0 0 20px #00fff7,
 0 0 40px #00fff7;
-margin-bottom:8px;
+margin-bottom:10px;
 }
 
 .tag{
 font-size:22px;
 font-weight:700;
 color:white;
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 /* UID BOX */
@@ -147,8 +145,7 @@ background:rgba(255,255,255,0.05);
 padding:20px;
 border-radius:25px;
 border:1px solid rgba(255,255,255,0.08);
-margin-bottom:25px;
-box-shadow:0 0 20px rgba(0,255,255,0.08);
+margin-bottom:20px;
 }
 
 .uidTitle{
@@ -170,19 +167,18 @@ font-size:22px;
 font-weight:800;
 text-align:center;
 letter-spacing:1px;
-box-shadow:0 0 15px rgba(0,255,255,0.10);
 }
 
 /* LOADING */
 
 .loading{
 width:100%;
-height:22px;
+height:20px;
 background:#111827;
 border-radius:50px;
 overflow:hidden;
 display:none;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .bar{
@@ -201,7 +197,7 @@ gap:18px;
 }
 
 button{
-padding:20px;
+padding:18px;
 border:none;
 border-radius:22px;
 font-size:20px;
@@ -209,7 +205,6 @@ font-weight:900;
 cursor:pointer;
 transition:0.3s;
 color:white;
-letter-spacing:1px;
 }
 
 button:hover{
@@ -231,34 +226,29 @@ background:linear-gradient(45deg,#008cff,#5f00ff);
 box-shadow:0 0 25px rgba(0,153,255,0.45);
 }
 
+.nextBtn{
+background:linear-gradient(45deg,#00fff7,#0066ff);
+box-shadow:0 0 25px rgba(0,255,255,0.4);
+}
+
 /* RESULT */
 
 .result{
-margin-top:30px;
-padding:30px;
+margin-top:25px;
+padding:25px;
 border-radius:28px;
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
-font-size:25px;
+font-size:24px;
 font-weight:900;
 color:white;
 line-height:1.7;
-min-height:180px;
+min-height:170px;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
 box-shadow:0 0 25px rgba(0,255,255,0.08);
-animation:pulse 2s infinite alternate;
-}
-
-@keyframes pulse{
-from{
-box-shadow:0 0 15px rgba(0,255,255,0.08);
-}
-to{
-box-shadow:0 0 35px rgba(0,255,255,0.20);
-}
 }
 
 .uid{
@@ -266,9 +256,7 @@ display:block;
 font-size:30px;
 margin-bottom:14px;
 color:#00fff7;
-text-shadow:
-0 0 10px #00fff7,
-0 0 20px #00fff7;
+text-shadow:0 0 10px #00fff7;
 }
 
 /* CARDS */
@@ -288,17 +276,181 @@ border:1px solid rgba(255,255,255,0.08);
 font-size:15px;
 font-weight:700;
 color:white;
-box-shadow:0 0 15px rgba(255,255,255,0.04);
 }
 
 /* FOOTER */
 
 .footer{
-margin-top:28px;
+margin-top:25px;
 font-size:18px;
 font-weight:700;
 color:#00fff7;
 text-shadow:0 0 12px #00fff7;
+}
+
+/* SECOND SCREEN */
+
+.manualScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#020617;
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:9999;
+overflow:auto;
+}
+
+.manualBox{
+width:100%;
+max-width:550px;
+background:rgba(255,255,255,0.05);
+border-radius:35px;
+padding:30px;
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(18px);
+box-shadow:
+0 0 30px rgba(0,255,255,0.25),
+0 0 80px rgba(0,255,255,0.08);
+text-align:center;
+}
+
+.manualBox h1{
+font-size:38px;
+font-weight:900;
+color:#00fff7;
+text-shadow:0 0 20px #00fff7;
+margin-bottom:10px;
+}
+
+.manualBox h2{
+font-size:28px;
+color:white;
+margin-bottom:25px;
+}
+
+.serverText{
+font-size:18px;
+font-weight:800;
+color:#00fff7;
+margin-bottom:12px;
+}
+
+.serverBar{
+width:100%;
+height:22px;
+background:#111827;
+border-radius:50px;
+overflow:hidden;
+}
+
+.serverLoad{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00fff7,#00ff88);
+animation:load 4s infinite;
+}
+
+@keyframes load{
+0%{width:0%;}
+100%{width:100%;}
+}
+
+/* MANUAL AREA */
+
+.manualArea{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-top:25px;
+}
+
+.manualCard{
+background:rgba(255,255,255,0.05);
+padding:22px;
+border-radius:22px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.manualTitle{
+font-size:22px;
+font-weight:900;
+color:#00fff7;
+margin-bottom:12px;
+}
+
+.manualCard input{
+width:100%;
+padding:18px;
+border:none;
+outline:none;
+border-radius:16px;
+background:#111827;
+color:white;
+font-size:20px;
+font-weight:700;
+text-align:center;
+}
+
+/* TIMER */
+
+.timerBox{
+margin-top:25px;
+padding:22px;
+border-radius:22px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.timerTitle{
+font-size:18px;
+font-weight:800;
+color:#00fff7;
+margin-bottom:10px;
+}
+
+.timer{
+font-size:42px;
+font-weight:900;
+color:white;
+text-shadow:0 0 15px #00fff7;
+}
+
+/* STATUS */
+
+.statusGrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:25px;
+}
+
+.status{
+padding:16px;
+border-radius:18px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+font-size:15px;
+font-weight:800;
+color:white;
+}
+
+.closeBtn{
+margin-top:25px;
+width:100%;
+padding:18px;
+border:none;
+border-radius:20px;
+font-size:20px;
+font-weight:900;
+cursor:pointer;
+color:white;
+background:linear-gradient(45deg,#ff004c,#ff4d6d);
+box-shadow:0 0 25px rgba(255,0,90,0.4);
 }
 
 </style>
@@ -327,8 +479,6 @@ JAI CLUB VIP CHANEL PANEL
 EARN WITH HACKII
 </div>
 
-<!-- UID INPUT -->
-
 <div class="uidBox">
 
 <div class="uidTitle">
@@ -339,13 +489,9 @@ ENTER UID NUMBER
 
 </div>
 
-<!-- LOADING -->
-
 <div class="loading" id="loading">
 <div class="bar" id="bar"></div>
 </div>
-
-<!-- BUTTONS -->
 
 <div class="btns">
 
@@ -361,15 +507,15 @@ NO PANEL FOUND
 YES + NO STATUS
 </button>
 
-</div>
+<button class="nextBtn" onclick="openManual()">
+NEXT PANEL →
+</button>
 
-<!-- RESULT -->
+</div>
 
 <div class="result" id="result">
 VIP DATABASE READY FOR UID CHECK
 </div>
-
-<!-- EXTRA CARDS -->
 
 <div class="cards">
 
@@ -391,15 +537,97 @@ SECURE PANEL SYSTEM
 
 </div>
 
-<!-- FOOTER -->
-
 <div class="footer">
 HIGH LEVEL PROFESSIONAL UI
 </div>
 
 </div>
 
+<!-- SECOND SCREEN -->
+
+<div class="manualScreen" id="manualScreen">
+
+<div class="manualBox">
+
+<h1>UID DONE ✅</h1>
+
+<h2 id="showUid"></h2>
+
+<div class="serverText" id="serverText">
+CONNECTING SERVER...
+</div>
+
+<div class="serverBar">
+<div class="serverLoad"></div>
+</div>
+
+<div class="manualArea">
+
+<div class="manualCard">
+
+<div class="manualTitle">
+PERIOD
+</div>
+
+<input type="text" placeholder="ENTER PERIOD">
+
+</div>
+
+<div class="manualCard">
+
+<div class="manualTitle">
+BET
+</div>
+
+<input type="text" placeholder="ENTER BET">
+
+</div>
+
+</div>
+
+<div class="timerBox">
+
+<div class="timerTitle">
+LIVE SERVER TIMER
+</div>
+
+<div class="timer" id="timer">
+00 : 59
+</div>
+
+</div>
+
+<div class="statusGrid">
+
+<div class="status">
+VIP SERVER ACTIVE
+</div>
+
+<div class="status">
+AUTO CONNECTED
+</div>
+
+<div class="status">
+PANEL VERIFIED
+</div>
+
+<div class="status">
+MANUAL READY
+</div>
+
+</div>
+
+<button class="closeBtn" onclick="closeManual()">
+BACK
+</button>
+
+</div>
+
+</div>
+
 <script>
+
+/* UID CHECK */
 
 function checkUID(type){
 
@@ -477,6 +705,82 @@ REGISTER NOW NEW NUMBER ⚠️
 },180);
 
 }
+
+/* OPEN SECOND SCREEN */
+
+function openManual(){
+
+let uid = document.getElementById('uid').value;
+
+if(uid == ''){
+alert('ENTER UID FIRST');
+return;
+}
+
+document.getElementById('manualScreen').style.display = 'flex';
+
+document.getElementById('showUid').innerHTML =
+'UID : ' + uid;
+
+}
+
+/* CLOSE */
+
+function closeManual(){
+
+document.getElementById('manualScreen').style.display = 'none';
+
+}
+
+/* TIMER */
+
+let time = 59;
+
+setInterval(function(){
+
+let sec = time;
+
+if(sec < 10){
+sec = "0" + sec;
+}
+
+document.getElementById('timer').innerHTML =
+"00 : " + sec;
+
+time--;
+
+if(time < 0){
+time = 59;
+}
+
+},1000);
+
+/* SERVER TEXT */
+
+const texts = [
+
+'CONNECTING SERVER...',
+'VIP SERVER CONNECTED...',
+'FETCHING UID DATA...',
+'MANUAL SYSTEM READY...',
+'LIVE PANEL ACTIVE...'
+
+];
+
+let i = 0;
+
+setInterval(function(){
+
+document.getElementById('serverText').innerHTML =
+texts[i];
+
+i++;
+
+if(i >= texts.length){
+i = 0;
+}
+
+},2000);
 
 </script>
 
