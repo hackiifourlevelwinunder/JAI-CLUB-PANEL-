@@ -18,21 +18,25 @@ font-family:'Poppins',sans-serif;
 
 body{
 background:#020617;
-overflow:hidden;
-height:100vh;
+overflow-x:hidden;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 position:relative;
+padding:20px;
 }
 
 /* BACKGROUND */
 
 .bg{
-position:absolute;
+position:fixed;
 width:100%;
 height:100%;
+top:0;
+left:0;
 overflow:hidden;
+z-index:1;
 }
 
 .bg span{
@@ -95,7 +99,7 @@ opacity:0;
 .container{
 position:relative;
 z-index:10;
-width:92%;
+width:100%;
 max-width:560px;
 padding:35px;
 border-radius:35px;
@@ -106,18 +110,6 @@ box-shadow:
 0 0 25px rgba(0,255,255,0.25),
 0 0 80px rgba(0,255,255,0.10);
 text-align:center;
-animation:show 1s ease;
-}
-
-@keyframes show{
-from{
-opacity:0;
-transform:scale(0.8);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
 }
 
 .logo{
@@ -137,8 +129,6 @@ font-weight:700;
 color:white;
 margin-bottom:25px;
 }
-
-/* UID BOX */
 
 .uidBox{
 background:rgba(255,255,255,0.05);
@@ -166,7 +156,6 @@ color:white;
 font-size:22px;
 font-weight:800;
 text-align:center;
-letter-spacing:1px;
 }
 
 /* LOADING */
@@ -248,7 +237,6 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-box-shadow:0 0 25px rgba(0,255,255,0.08);
 }
 
 .uid{
@@ -257,35 +245,6 @@ font-size:30px;
 margin-bottom:14px;
 color:#00fff7;
 text-shadow:0 0 10px #00fff7;
-}
-
-/* CARDS */
-
-.cards{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-margin-top:25px;
-}
-
-.card{
-padding:18px;
-border-radius:18px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-font-size:15px;
-font-weight:700;
-color:white;
-}
-
-/* FOOTER */
-
-.footer{
-margin-top:25px;
-font-size:18px;
-font-weight:700;
-color:#00fff7;
-text-shadow:0 0 12px #00fff7;
 }
 
 /* SECOND SCREEN */
@@ -299,7 +258,7 @@ height:100%;
 background:#020617;
 display:none;
 justify-content:center;
-align-items:center;
+align-items:flex-start;
 padding:20px;
 z-index:9999;
 overflow:auto;
@@ -307,7 +266,7 @@ overflow:auto;
 
 .manualBox{
 width:100%;
-max-width:550px;
+max-width:560px;
 background:rgba(255,255,255,0.05);
 border-radius:35px;
 padding:30px;
@@ -323,15 +282,99 @@ text-align:center;
 font-size:38px;
 font-weight:900;
 color:#00fff7;
-text-shadow:0 0 20px #00fff7;
 margin-bottom:10px;
 }
 
 .manualBox h2{
 font-size:28px;
 color:white;
-margin-bottom:25px;
+margin-bottom:20px;
 }
+
+/* REAL TIME */
+
+.liveBox{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-bottom:20px;
+}
+
+.liveCard{
+padding:18px;
+border-radius:22px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.liveTitle{
+font-size:16px;
+font-weight:800;
+color:#00fff7;
+margin-bottom:10px;
+}
+
+.liveValue{
+font-size:20px;
+font-weight:900;
+color:white;
+}
+
+/* EARTH */
+
+.earthBox{
+margin-bottom:20px;
+padding:25px;
+border-radius:28px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.earth{
+width:110px;
+height:110px;
+border-radius:50%;
+background:
+radial-gradient(circle at 30% 30%, #00fff7, #0044ff);
+box-shadow:
+0 0 25px #00fff7,
+0 0 60px rgba(0,255,255,0.4);
+animation:rotateEarth 6s linear infinite;
+}
+
+@keyframes rotateEarth{
+0%{
+transform:rotate(0deg);
+}
+100%{
+transform:rotate(360deg);
+}
+}
+
+.earthText{
+margin-top:18px;
+font-size:20px;
+font-weight:900;
+color:#00fff7;
+}
+
+/* NOTE */
+
+.noteBox{
+margin-bottom:20px;
+padding:22px;
+border-radius:22px;
+background:linear-gradient(45deg,#ff004c,#ff8800);
+font-size:20px;
+font-weight:900;
+color:white;
+text-align:center;
+}
+
+/* SERVER */
 
 .serverText{
 font-size:18px;
@@ -346,6 +389,7 @@ height:22px;
 background:#111827;
 border-radius:50px;
 overflow:hidden;
+margin-bottom:20px;
 }
 
 .serverLoad{
@@ -360,13 +404,13 @@ animation:load 4s infinite;
 100%{width:100%;}
 }
 
-/* MANUAL AREA */
+/* MANUAL */
 
 .manualArea{
 display:flex;
 flex-direction:column;
 gap:18px;
-margin-top:25px;
+margin-bottom:20px;
 }
 
 .manualCard{
@@ -383,27 +427,13 @@ color:#00fff7;
 margin-bottom:12px;
 }
 
-.manualCard input{
-width:100%;
-padding:18px;
-border:none;
-outline:none;
-border-radius:16px;
-background:#111827;
-color:white;
-font-size:20px;
-font-weight:700;
-text-align:center;
-}
-
 /* TIMER */
 
 .timerBox{
-margin-top:25px;
+margin-bottom:20px;
 padding:22px;
 border-radius:22px;
 background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
 }
 
 .timerTitle{
@@ -417,7 +447,28 @@ margin-bottom:10px;
 font-size:42px;
 font-weight:900;
 color:white;
-text-shadow:0 0 15px #00fff7;
+}
+
+/* USERS */
+
+.usersBox{
+margin-bottom:20px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,0.05);
+}
+
+.usersTitle{
+font-size:18px;
+font-weight:800;
+color:#00fff7;
+margin-bottom:12px;
+}
+
+.usersCount{
+font-size:45px;
+font-weight:900;
+color:white;
 }
 
 /* STATUS */
@@ -426,21 +477,60 @@ text-shadow:0 0 15px #00fff7;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:15px;
-margin-top:25px;
+margin-bottom:20px;
 }
 
 .status{
 padding:16px;
 border-radius:18px;
 background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
 font-size:15px;
 font-weight:800;
 color:white;
 }
 
+/* MATRIX */
+
+.matrixBox{
+margin-bottom:20px;
+padding:25px;
+border-radius:25px;
+background:black;
+border:1px solid #00ff88;
+}
+
+.matrixTitle{
+font-size:18px;
+font-weight:800;
+color:#00ff88;
+margin-bottom:12px;
+}
+
+.matrixText{
+font-size:20px;
+font-weight:900;
+color:#00ff88;
+font-family:monospace;
+}
+
+/* TELEGRAM */
+
+.telegramBtn{
+width:100%;
+padding:20px;
+border:none;
+border-radius:22px;
+font-size:20px;
+font-weight:900;
+cursor:pointer;
+color:white;
+background:linear-gradient(45deg,#0088cc,#00c3ff);
+margin-bottom:20px;
+}
+
+/* CLOSE */
+
 .closeBtn{
-margin-top:25px;
 width:100%;
 padding:18px;
 border:none;
@@ -450,14 +540,27 @@ font-weight:900;
 cursor:pointer;
 color:white;
 background:linear-gradient(45deg,#ff004c,#ff4d6d);
-box-shadow:0 0 25px rgba(255,0,90,0.4);
+}
+
+/* TOAST */
+
+.toast{
+position:fixed;
+top:30px;
+right:30px;
+padding:18px 28px;
+border-radius:18px;
+background:linear-gradient(45deg,#00ff88,#00c96b);
+font-size:18px;
+font-weight:900;
+color:white;
+display:none;
+z-index:99999;
 }
 
 </style>
 </head>
 <body>
-
-<!-- BACKGROUND -->
 
 <div class="bg">
 <span></span>
@@ -466,8 +569,6 @@ box-shadow:0 0 25px rgba(255,0,90,0.4);
 <span></span>
 <span></span>
 </div>
-
-<!-- MAIN PANEL -->
 
 <div class="container">
 
@@ -517,30 +618,6 @@ NEXT PANEL →
 VIP DATABASE READY FOR UID CHECK
 </div>
 
-<div class="cards">
-
-<div class="card">
-VIP SERVER ONLINE
-</div>
-
-<div class="card">
-PREMIUM ACCESS
-</div>
-
-<div class="card">
-FAST UID CHECKER
-</div>
-
-<div class="card">
-SECURE PANEL SYSTEM
-</div>
-
-</div>
-
-<div class="footer">
-HIGH LEVEL PROFESSIONAL UI
-</div>
-
 </div>
 
 <!-- SECOND SCREEN -->
@@ -552,6 +629,34 @@ HIGH LEVEL PROFESSIONAL UI
 <h1>UID DONE ✅</h1>
 
 <h2 id="showUid"></h2>
+
+<div class="liveBox">
+
+<div class="liveCard">
+<div class="liveTitle">REAL DATE</div>
+<div class="liveValue" id="realDate"></div>
+</div>
+
+<div class="liveCard">
+<div class="liveTitle">REAL TIME</div>
+<div class="liveValue" id="realTime"></div>
+</div>
+
+</div>
+
+<div class="earthBox">
+
+<div class="earth"></div>
+
+<div class="earthText">
+GLOBAL VIP SERVER CONNECTED
+</div>
+
+</div>
+
+<div class="noteBox">
+⚠️ NOTE : 3 WIN SHOTE ONLY 1 HOURS ⚠️
+</div>
 
 <div class="serverText" id="serverText">
 CONNECTING SERVER...
@@ -597,6 +702,18 @@ LIVE SERVER TIMER
 
 </div>
 
+<div class="usersBox">
+
+<div class="usersTitle">
+LIVE USERS CONNECTED
+</div>
+
+<div class="usersCount" id="usersCount">
+523
+</div>
+
+</div>
+
 <div class="statusGrid">
 
 <div class="status">
@@ -617,12 +734,32 @@ MANUAL READY
 
 </div>
 
+<div class="matrixBox">
+
+<div class="matrixTitle">
+AI DATABASE STATUS
+</div>
+
+<div class="matrixText" id="matrixText">
+CONNECTING...
+</div>
+
+</div>
+
+<button class="telegramBtn">
+JOIN VIP TELEGRAM
+</button>
+
 <button class="closeBtn" onclick="closeManual()">
 BACK
 </button>
 
 </div>
 
+</div>
+
+<div class="toast" id="toast">
+UID VERIFIED SUCCESSFULLY ✅
 </div>
 
 <script>
@@ -706,7 +843,7 @@ REGISTER NOW NEW NUMBER ⚠️
 
 }
 
-/* OPEN SECOND SCREEN */
+/* OPEN */
 
 function openManual(){
 
@@ -721,6 +858,14 @@ document.getElementById('manualScreen').style.display = 'flex';
 
 document.getElementById('showUid').innerHTML =
 'UID : ' + uid;
+
+document.getElementById('toast').style.display = 'block';
+
+setTimeout(function(){
+
+document.getElementById('toast').style.display = 'none';
+
+},3000);
 
 }
 
@@ -755,15 +900,46 @@ time = 59;
 
 },1000);
 
+/* DATE TIME */
+
+function updateDateTime(){
+
+let now = new Date();
+
+document.getElementById('realDate').innerHTML =
+now.toLocaleDateString();
+
+document.getElementById('realTime').innerHTML =
+now.toLocaleTimeString();
+
+}
+
+setInterval(updateDateTime,1000);
+
+updateDateTime();
+
+/* USERS */
+
+let users = 523;
+
+setInterval(function(){
+
+users += Math.floor(Math.random()*3);
+
+document.getElementById('usersCount').innerHTML = users;
+
+},2000);
+
 /* SERVER TEXT */
 
 const texts = [
 
-'CONNECTING SERVER...',
-'VIP SERVER CONNECTED...',
-'FETCHING UID DATA...',
-'MANUAL SYSTEM READY...',
-'LIVE PANEL ACTIVE...'
+'CONNECTING AI SERVER...',
+'FETCHING UID DATABASE...',
+'VIP ACCESS VERIFIED...',
+'SERVER CONNECTED...',
+'LIVE PANEL ACTIVE...',
+'UID SECURITY PASSED...'
 
 ];
 
@@ -778,6 +954,23 @@ i++;
 
 if(i >= texts.length){
 i = 0;
+}
+
+},2000);
+
+/* MATRIX */
+
+let m = 0;
+
+setInterval(function(){
+
+document.getElementById('matrixText').innerHTML =
+texts[m];
+
+m++;
+
+if(m >= texts.length){
+m = 0;
 }
 
 },2000);
